@@ -1,18 +1,15 @@
 'use client'
 import { useEffect, useState } from 'react';
+import {fields,justindex,TargetValueData,tss} from "../../../components/TargetValueData";
 export default function TargetValue() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-
     useEffect(() => {
         const checkScreenSize = () => {
             const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             setIsSmallScreen(width < 625);
         };
-        console.log(setIsSmallScreen)
         checkScreenSize();
-
         window.addEventListener('resize', checkScreenSize);
-
         return () => {
             window.removeEventListener('resize', checkScreenSize);
         };
@@ -58,6 +55,45 @@ export default function TargetValue() {
                     </div>
                 </div>
             </div>
+            <div className="flex gap-12 justify-center bg-green-300 mt-6 rounded-lg">
+                <div className="w-full flex">
+                    {justindex.map((item,index)=>(
+                        <div key={index} className="w-1/2 flex px-6 py-6">
+                            <h1>{item}</h1>
+                        </div>
+                    ))}
+                    {fields.map((item,index)=>(
+                        <div key={index} className="w-1/2 flex px-6 py-6">
+                            <h1>{item}</h1>
+                        </div>
+                    ))}
+                    {tss.map((item,index)=>(
+                        <div key={index} className="w-1/6 flex px-6 py-6">
+                            <h1>{item}</h1>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            {TargetValueData.map((item,index)=>(
+                <div key={index} className="flex justify-center">
+                    {item[0].map((someitem,someindex)=>(
+                        <div key={someindex} className="w-1/2 flex px-6 py-6 text-blue-600 gap-2" style={{border: '1px solid white'}}>
+                            <input type="checkbox" />
+                            <h1>{someitem}</h1>
+                        </div>
+                    ))}
+                    {item[1].map((someitem,someindex)=>(
+                        <div key={someindex} className="w-1/2 flex px-6 py-6 text-gray-600" style={{border: '1px solid white'}}>
+                            <h1>{someitem}</h1>
+                        </div>
+                    ))}
+                    {item[2].map((someitem,someindex)=>(
+                        <div key={someindex} className="w-1/6 flex px-6 py-6 text-gray-600" style={{border: '1px solid white'}}>
+                            <h1>{someitem}</h1>
+                        </div>
+                    ))}
+                </div>
+            ))}
         </div>
     )
 }
