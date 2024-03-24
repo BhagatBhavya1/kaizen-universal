@@ -1,9 +1,13 @@
 import {PortfolioData} from "../../../components/PortfolioData";
 import Image from "next/image";
+import Navbar from "../../../components/Navbar";
 export default function MyPortfolio() {
     return (
         <div className="bg-slate-950 min-h-screen">
-            <div className="flex flex-col py-6">
+            <div className="flex flex-col py-4">
+            <div className="px-3 rounded-md mb-4">
+            <Navbar />
+            </div>
             <div className="flex gap-4 gap-y-4 items-center text-center justify-between bg-slate-900 py-4 text-white">
                         <div className="w-1/4">
                             <h2>Stocks</h2>

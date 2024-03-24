@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import {NewsData} from "../../../components/NewsData";
+import Navbar from "../../../components/Navbar"
 export default function News() {
     const [isSmallScreen, setIsSmallScreen] = useState(0);
     const sArray=["grid-cols-4","grid-cols-2","grid-cols-1"];
@@ -24,7 +25,10 @@ export default function News() {
         };
     }, []);
     return (
-        <div className="bg-slate-900 min-h-screen py-6">
+        <div className="bg-slate-900 min-h-screen py-6 flex flex-col">
+            <div className="px-3 rounded-md mb-4">
+            <Navbar />
+            </div>
             <div className="bg-green-950 ml-6 mr-6">
                 <div className="container mx-auto">
                     <div className={`grid ${sArray[isSmallScreen]} gap-4 px-2 py-10`}>

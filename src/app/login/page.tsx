@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { RiUserFill, RiLockPasswordFill } from 'react-icons/ri';
-import Navbar from "../../../components/Navbar";
+import Navbar from "../../../components/NavbarHome";
 export default function Login() {
   return (
     <main>
@@ -17,7 +17,9 @@ export default function Login() {
           />
         </div>
         <div>
-          {/* <Navbar /> */}
+        <div className="px-3 rounded-md mb-4 py-4">
+            <Navbar />
+            </div>
         </div>
         <div className="flex items-center justify-center h-screen">
           <form className="rounded px-8 pt-6 pb-8 mb-4 w-2/3">

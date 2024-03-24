@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import Navbar from "../../../components/NavbarBack"
 import {fields,justindex,TargetValueData,tss} from "../../../components/TargetValueData";
 export default function TargetValue() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -16,6 +17,9 @@ export default function TargetValue() {
     }, []);
     return (
         <div className="flex flex-col bg-slate-950 min-h-screen px-6 py-6 w-full">
+            <div className="px-3 rounded-md mb-4">
+            <Navbar />
+            </div>
             <div className="bg-green-950 px-8 py-4 rounded-md justify-center">
                 <h1 className="text-white text-4xl">Reliance Industries</h1>
                 <hr className="mt-5 mb-5 mx-auto border-gray-400 border-2" />

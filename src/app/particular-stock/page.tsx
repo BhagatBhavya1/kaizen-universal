@@ -2,6 +2,7 @@
 import { FaArrowRight } from "react-icons/fa";;
 import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from "react-icons/io";
+import Navbar from "../../../components/Navbar"
 export default function ParticularStock() {
     const [selectedStartDate, setSelectedStartDate] = useState('');
     const handleStartDateChange = (event : any) => {
@@ -25,6 +26,9 @@ export default function ParticularStock() {
     }, []);
     return (
         <div className="flex flex-col bg-slate-950 min-h-screen px-6 py-6 w-full">
+            <div className="px-3 rounded-md mb-4">
+            <Navbar />
+            </div>
             <div className="bg-green-950 px-8 py-4 rounded-md justify-center">
                 <div className="flex justify-between">
                 <h1 className="text-white text-4xl">Reliance Industries</h1>
