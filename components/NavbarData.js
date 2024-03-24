@@ -21,7 +21,7 @@ export let navbar2=[
         route : "/"
     },{
         name : "CONTACT US",
-        route : "/"
+        route : "/#contact-section"
     },
 ]
 export let navbar3=[

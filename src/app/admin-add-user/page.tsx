@@ -36,49 +36,6 @@ export default function AddAdminUser() {
                     </button>
                 </div>
             </div>
-            <div className="px-6">
-            {AddUserData.map((item,index)=>(
-                <div className="flex py-6 px-6 justify-center text-center items-center">
-                    <div className="flex w-11/12 gap-12">
-                        <div className="border-b border-white">
-                            <input type="checkbox" 
-                            checked={item.access}
-                            />
-                        </div>
-                        <div className="border-b border-white">
-                            <h1 className="text-white text-bold">{item.employeeid}</h1>
-                        </div>
-                        <div className="border-b border-white">
-                            <h1 className="text-gray-500">{item.employeename}</h1>
-                        </div>
-                        <div className="border-b border-white">
-                            <h1 className="text-gray-500">{item.employeeemail}</h1>
-                        </div>
-                        <div className="border-b border-white">
-                            <h1 className="text-gray-500">{item.contactno}</h1>
-                        </div>
-                        <div className={"border-b border-white px-4 py-2"}>
-                            {item.currentstatus ? (
-                                <div className="flex gap-2 border border-green-600 rounded-lg justify-center items-center text-center">
-                                    <span className="flex text-green-600 justify-center"><GoDotFill /></span>
-                                    <h1 className="text-green-600">Active</h1>
-                                </div>
-                            ) : (
-                                <div className="flex gap-2 border border-red-600 rounded-lg">
-                                    <span className="text-red-600"><GoDotFill /></span>
-                                    <h1 className="text-red-600">Inactive</h1>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    <div className="border-b border-white w-1/12">
-                        <button>
-                            <span className="text-white"><HiOutlineDotsVertical /></span>
-                        </button>
-                    </div>
-                </div>
-            ))}
-            </div>
         </div>
     )
 }
