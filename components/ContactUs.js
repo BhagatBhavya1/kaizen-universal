@@ -1,0 +1,1 @@
+export let contact=["Service","Support","Company","Legal","Join Us"];
