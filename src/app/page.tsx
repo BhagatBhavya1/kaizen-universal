@@ -44,7 +44,7 @@ export default function Home() {
               </div>
           </div>
           <div className="bg-slate-950 flex flex-col">
-            <h1 className="text-2xl text-green-300 justify-center text-center items-center py-10">TRANDING TRADS</h1>
+            <h1 className="text-2xl text-green-300 justify-center text-center items-center py-10">TRENDING TRADS</h1>
           </div>
           <div className="bg-green-100">
             <h1 className="py-10 text-2xl justify-center text-center items-center">
