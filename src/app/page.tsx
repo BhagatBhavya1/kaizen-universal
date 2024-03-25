@@ -71,7 +71,7 @@ export default function Home() {
                     />
                 </div>
 
-                <div id="contact-section" className="flex flex-col bg-slate-950 px-10 py-10 rounded-b-3xl overflow-hidden">
+                <div id="contact-section" className="mb-5 flex flex-col bg-slate-950 px-10 py-10 rounded-b-3xl overflow-hidden">
                     <h1 className="text-green-100 text-2xl text-center item-center justify-center">CONTACT US</h1>
                     <div className="flex mt-12 justify-center text-center items-center">
                         {contact.map((item,index)=>(

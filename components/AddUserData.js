@@ -2,7 +2,7 @@
 export let AddUserData=[
     {
         access : true,
-        employeeid : "Krish",
+        employeeid : "Bold text column",
         employeename : "Regular text column",
         employeeemail : "Regular text column",
         contactno : "Regular text column",
@@ -10,7 +10,7 @@ export let AddUserData=[
     },
     {
         access : true,
-        employeeid : "Krish Thakrar",
+        employeeid : "Bold text column",
         employeename : "Regular text column",
         employeeemail : "Regular text column",
         contactno : "Regular text column",
