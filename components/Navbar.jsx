@@ -3,7 +3,7 @@ import { MdHomeFilled } from "react-icons/md";
 import Link from "next/link";
 export default function Navbar(){
     return (
-        <div className="bg-green-950 flex justify-between rounded-md px-6 py-2">
+        <div className="bg-green-900 flex justify-between rounded-md px-6 py-2">
             <div>
                 <h1 className="text-2xl text-white font-bold">Kaizan Universal</h1>
             </div>
