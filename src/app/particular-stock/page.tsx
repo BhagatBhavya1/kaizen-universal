@@ -2,9 +2,13 @@
 import { FaArrowRight } from "react-icons/fa";;
 import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from "react-icons/io";
-import Navbar from "../../../components/Navbar"
+import Navbar from "../../../components/Navbar";
+import io from 'socket.io-client';
+
 export default function ParticularStock() {
     const [selectedStartDate, setSelectedStartDate] = useState('');
+    //live data
+    const [messages, setMessages] = useState([]);
     const handleStartDateChange = (event : any) => {
         setSelectedStartDate(event.target.value);
     };
@@ -20,8 +24,21 @@ export default function ParticularStock() {
         };
         checkScreenSize();
         window.addEventListener('resize', checkScreenSize);
+
+        const chatSocket = io('http://localhost:5000/chat',{query: {
+            status:"Single",
+            symbol: "NSE:SBIN-EQ", // Send selected stock symbol to the backend
+        }});
+         // Connect to the 'chat' namespace
+        // Chat namespace
+        chatSocket.on('message', (msg) => {
+            console.log('Cdata :', msg);
+            setMessages((prevMessages) => [...prevMessages, msg]);
+        });
+
         return () => {
             window.removeEventListener('resize', checkScreenSize);
+            chatSocket.disconnect();
         };
     }, []);
     return (
@@ -68,8 +85,8 @@ export default function ParticularStock() {
                                 <h1 className="text-2xl">Latest Price</h1>
                             </div>
                             <div className="flex justify-between">
-                                <h1 className="text-2xl">391.59</h1>
-                                <h2 className="bg-white rounded-xl px-1 py-1">+5,2%</h2>  
+                                <h1 className="text-2xl">{messages.length > 0 ? messages[messages.length - 1]['ltp'] : '0.00'}</h1>
+                                <h2 className="bg-white rounded-xl px-1 py-1">{messages.length > 0 ? messages[messages.length - 1]['chp'] >0 ? '+'+messages[messages.length - 1]['chp'] :messages[messages.length - 1]['chp']  : '0.00'}%</h2>  
                             </div>
                         </div>
                     </div>
@@ -79,8 +96,8 @@ export default function ParticularStock() {
                                 <h1 className="text-2xl">High Price</h1>
                             </div>
                             <div className="flex justify-between">
-                                <h1 className="text-2xl">400.43</h1>
-                                <h2 className="bg-white rounded-xl px-1 py-1">+2,5%</h2>  
+                                <h1 className="text-2xl">{messages.length > 0 ? messages[messages.length - 1]['high_price'] : '0.00'}</h1>
+                                {/* <h2 className="bg-white rounded-xl px-1 py-1">+2,5%</h2>   */}
                             </div>
                         </div>
                     </div>
@@ -90,8 +107,8 @@ export default function ParticularStock() {
                                 <h1 className="text-2xl">Low Price</h1>
                             </div>
                             <div className="flex justify-between">
-                                <h1 className="text-2xl">176.32</h1>
-                                <h2 className="px-1 py-1 bg-black rounded-xl text-white">-1,2%</h2>  
+                                <h1 className="text-2xl">{messages.length > 0 ? messages[messages.length - 1]['low_price'] : '0.00'}</h1>
+                                {/* <h2 className="px-1 py-1 bg-black rounded-xl text-white">-1,2%</h2>   */}
                             </div>
                         </div>
                     </div>

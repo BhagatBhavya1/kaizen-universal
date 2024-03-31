@@ -39,7 +39,7 @@ export default function AdminAddStock() {
             </div>
             <div className="ml-10 flex mr-10 gap-2 py-4">
             <AddStock />
-            <AddStock />
+            {/* <AddStock /> */}
             </div>
         </div>
     )
