@@ -21,24 +21,16 @@ export default function MyPortfolio() {
             console.log('Cdata :', msg);
             console.log("x = ",msg.symbol);
             console.log("price",msg.ltp);
-             // Check if the symbol exists in the stockNames list
-             const symbolIndex = stockNames.findIndex(stock => stock.symbol === msg.symbol);
-
-             if (symbolIndex !== -1) {
-                 // Symbol exists, update its ltp value
-                 setStockNames(prevStockNames => {
-                     const updatedStocks = [...prevStockNames];
-                     updatedStocks[symbolIndex].ltp = msg.ltp;
-                     updatedStocks[symbolIndex].chp = msg.chp;
-                     return updatedStocks;
-                 });
-             } else if(msg.symbol !== undefined){
-                 // Symbol doesn't exist, add it to the list
-                 setStockNames(prevStockNames => [
-                     ...prevStockNames,
-                     { symbol: msg.symbol, ltp: msg.ltp , chp:msg.chp }
-                 ]);
-             }
+            setStockNames(prevStockNames => {
+                const symbolIndex = prevStockNames.findIndex(stock => stock.symbol === msg.symbol);
+                if (symbolIndex !== -1) {
+                    // Symbol exists, update its values
+                    return prevStockNames.map((stock, index) => index === symbolIndex ? { ...stock, ltp: msg.ltp, chp: msg.chp } : stock);
+                } else {
+                    // Symbol doesn't exist, add it to the list
+                    return [...prevStockNames, { symbol: msg.symbol, ltp: msg.ltp, chp: msg.chp }];
+                }
+            });
         });
         // chatSocket.on('stock_list',(stock)=>{
         //     // console.log('stock_list',stock);
